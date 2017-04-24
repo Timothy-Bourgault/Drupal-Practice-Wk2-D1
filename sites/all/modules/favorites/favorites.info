@@ -1,0 +1,5 @@
+name = Favorites
+description = Lists favorite media of specified user.
+package = Epicodus Exercises
+core = 7.x
+files[]= favorites.module

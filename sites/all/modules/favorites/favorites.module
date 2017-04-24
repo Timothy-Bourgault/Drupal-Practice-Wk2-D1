@@ -1,0 +1,32 @@
+<?php
+
+function favorites_menu() {
+  $items = array();
+  foreach($favorites as $favorite);
+  $items['favorite/' . $favorite] = array(
+    'title' => 'My Favorites',
+    'page callback' => 'show_favorites',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM
+  );
+  return $items;
+}
+
+function show_favorites() {
+    $my_favorites['movies'] = array(
+          'Cliffhanger',
+          'Altered Beast',
+          'Leviathan'
+        );
+    $my_favorites['books'] = array(
+          'Gödel, Escher, Bach: An Eternal Golden Braid',
+          'Farenheit 451',
+          'Eragon'
+        );
+    $my_favorites['songs'] = array(
+          'Hunger Strike by Estradasphere',
+          'The 7 by Secret Chiefs 3',
+          'Not Alone by Dub Trio'
+    );
+    return $my_favorites;
+}
