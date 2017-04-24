@@ -1,0 +1,43 @@
+<?php
+
+function cards_menu() {
+    $items = array();
+    $friend_list = get_friends();
+    foreach ($friend_list as $friend) {
+      $items[$friend['name']] = array(
+        'title' => $friend['name'],
+        'page callback' => 'greet_friend',
+        'page arguments' => array(
+          $friend
+        ),
+        'access callback' => TRUE,
+        'type' => MENU_NORMAL_ITEM
+      );
+    }
+    return $items;
+}
+
+function get_friends() {
+  return array(
+    array(
+      'name' => 'patrick',
+      'img_src' => 'patrick.jpg'
+    ),
+    array(
+      'name' => 'tim',
+      'img_src' => 'tim.jpeg'
+    ),
+    array(
+      'name' => 'dylan',
+      'img_src' => 'dylan.png'
+    )
+  );
+}
+
+function greet_friend($arg) {
+  $text = $arg['name'];
+  $src = $arg['img_src'];
+  $text .=  '<img src="sites/all/modules/cards/images/' . $src . '">';
+
+  return $text;
+}

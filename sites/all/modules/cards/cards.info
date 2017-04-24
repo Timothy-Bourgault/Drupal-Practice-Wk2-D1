@@ -1,0 +1,5 @@
+name = Greeting Cards
+description = Displays different greeting cards.
+package = Epicodus Exercises
+core = 7.x
+files[] = cards.module

@@ -2,24 +2,29 @@
 
 function favorites_menu() {
   $items = array();
-  foreach($favorites as $favorite);
-  $items['favorite/' . $favorite] = array(
-    'title' => 'My Favorites',
-    'page callback' => 'show_favorites',
-    'access callback' => TRUE,
-    'type' => MENU_NORMAL_ITEM
-  );
+  $favorites = get_favorites();
+  foreach ($favorites as $favorite_type => $favorites) {
+    $items['favorite/' . $favorite_type] = array(
+      'title' => $favorite_type,
+      'page callback' => 'show_favorites',
+      'page arguments' => array(
+        $favorite_type
+      ),
+      'access callback' => TRUE,
+      'type' => MENU_NORMAL_ITEM
+    );
+  }
   return $items;
 }
 
-function show_favorites() {
+function get_favorites() {
     $my_favorites['movies'] = array(
           'Cliffhanger',
           'Altered Beast',
           'Leviathan'
         );
     $my_favorites['books'] = array(
-          'Gödel, Escher, Bach: An Eternal Golden Braid',
+          'Godel, Escher, Bach: An Eternal Golden Braid',
           'Farenheit 451',
           'Eragon'
         );
@@ -29,4 +34,16 @@ function show_favorites() {
           'Not Alone by Dub Trio'
     );
     return $my_favorites;
+}
+
+function show_favorites($arg) {
+$fav_list = get_favorites();
+$favorite_type = $fav_list[$arg];
+$text = 'Here is your list of favorite ' . $arg . ':<ul>';
+foreach ($favorite_type as $fav_list_item) {
+    $text .= '<li>' . $fav_list_item . '</li>';
+};
+$text .= "</ul>";
+
+return $text;
 }
