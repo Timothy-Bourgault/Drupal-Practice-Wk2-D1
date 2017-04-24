@@ -1,0 +1,5 @@
+name = Groceries
+description = Prints grocery list.
+package = Epicodus Exercises
+core = 7.x
+files[] = groceries.module
