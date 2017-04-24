@@ -1,0 +1,6 @@
+name = Pet
+description = Describes my pet.
+package = Epicodus Exercises
+core = 7.x
+files[] = pet.module
+stylesheets[all][] = pet.css

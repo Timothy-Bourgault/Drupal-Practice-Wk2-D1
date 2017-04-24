@@ -1,0 +1,26 @@
+<?php
+
+function pet_menu() {
+  $items = array();
+  $items['pet'] = array(
+    'title' => 'My Pet',
+    'page callback' => 'show_pet',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM
+  );
+  return $items;
+}
+
+function show_pet() {
+  return '
+    <ul id="pet-stats">
+      <li>Name: Stan</li>
+      <li>
+        Breed: <a href="https://en.wikipedia.org/wiki/Labradoodle">
+                 Labradoodle
+               </a>
+      </li>
+    </ul>
+    <img id="dog-pic" src="sites/all/modules/pet/labradoodle.jpeg">
+  ';
+}
